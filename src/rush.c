@@ -88,7 +88,11 @@ int main(int argc, char *argv[]) {
             token = strtok_r(NULL, " \t", &saveptr);
         }
         args[argc_cmd] = NULL;
-        if (argc_cmd == 0) continue;
+        if (argc_cmd == 0) {
+            write(STDERR_FILENO, error_message, strlen(error_message));
+            continue;
+        }
+
 
         // Built-ins
         if (strcmp(args[0], "exit") == 0) {
