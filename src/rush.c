@@ -67,11 +67,18 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             out_file = redir_ptr;
-            char *tmp = strpbrk(out_file, " \t");
-            if (tmp != NULL && *(tmp + 1) != '\0') {
+        char *tmp = strpbrk(out_file, " \t");
+        if (tmp != NULL) {
+            // Skip all whitespace to see if there are more arguments
+            char *check = tmp;
+            while (*check == ' ' || *check == '\t') check++;
+            if (*check != '\0') {
                 write(STDERR_FILENO, error_message, strlen(error_message));
                 continue;
             }
+            *tmp = '\0';  // Trim trailing whitespace from filename
+        }
+
             if (tmp != NULL) *tmp = '\0';
             cmd_part = line;
         } else {
