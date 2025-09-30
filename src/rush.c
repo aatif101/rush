@@ -30,7 +30,13 @@ void set_paths(char **new_paths, int count) {
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
+
+        if (argc != 1) {
+        write(STDERR_FILENO, error_message, strlen(error_message));
+        exit(1);
+    }
+
     char *line = NULL;
     size_t bufsize = 0;
     ssize_t length;
