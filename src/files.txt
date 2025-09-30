@@ -1,4 +1,0 @@
-files.txt
-Makefile
-rush
-rush.c
