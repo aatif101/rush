@@ -87,11 +87,13 @@ int main(int argc, char *argv[]) {
             args[argc_cmd++] = token;
             token = strtok_r(NULL, " \t", &saveptr);
         }
-        args[argc_cmd] = NULL;
         if (argc_cmd == 0) {
-            write(STDERR_FILENO, error_message, strlen(error_message));
+            if (out_file != NULL) {
+                write(STDERR_FILENO, error_message, strlen(error_message));
+            }
             continue;
         }
+
 
 
         // Built-ins
