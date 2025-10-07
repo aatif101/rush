@@ -95,19 +95,4 @@ This was one of the first projects that made me feel like I was working close to
 Every bug taught me how fragile process management can be, a missing file descriptor or fork gone wrong could break everything.
 By the end, I had a much deeper understanding of how operating systems manage processes and execute programs, beyond just theory.
 
----
-
-## **Topics**
-
-```
-c
-operating-systems
-shell
-linux
-system-calls
-fork
-exec
-process-management
-parsing
-course-project
 
